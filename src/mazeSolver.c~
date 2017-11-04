@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+
+int main(){
+
+ FILE* maze;
+
+ maze = fopen("maze.txt",'r');
+
+
+return 0;
+}

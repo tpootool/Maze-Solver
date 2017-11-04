@@ -1,0 +1,29 @@
+Student Name: Travis Pootoolal
+Student ID: 0753871
+
+
+To show the tests I have done, I have listed my tests in a table format.
+The table consists of what I have done, what I expect and what actually happened.
+
+
+Input             | Expected Output  | Actual Output
+----------------------------------------------------------
+-No path entered  | -Error message   | -Does as expected 
+ on command line  |  displays and    |
+                  |  exits program   |
+                  |                  |
+-Invalid path     | -Error message   | -Does as expected 
+ entered on       |  displays and    |
+ command line     |  exits program   |
+                  |                  |
+-Changed starting | -Prints path from| -Does as expected in
+ and ending       |  new start to    |  most parts, creates
+ positions in maze|  finish          |  seg faults in few 
+ file             |                  |  places (works if S 
+                  |                  |  is in all walls)
+                  |                  |
+-Changed maze so  | -Error message   | -Does as expected in
+ there are no     |  displays and    |  most parts, creates
+ possible paths   |  exits program   |  seg faults in few
+ to finish        |                  |  places (works if S 
+                  |                  |  is in all walls)

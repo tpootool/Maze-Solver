@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ncurses.h>
+#include "stack.h"
+#include "otherSolver.h"
+
+
+int main(){
+
+
+ char* mazeLine;
+ char* prevMazeLine;
+ int xPos, yPos, maxLength, maxWidth, i, j;
+ char pos;
+ char mazeHolder[100][100];
+
+ stack* sol;
+ stack* newNode;
+ struct theMaze*
+
+
+
+ mazeLine = malloc(sizeof(char)*100);
+ prevMazeLine = malloc(sizeof(char)*100);
+
+ mazeHolder = mazePrinter();
+
+ maxLength = lengthCounter(mazeHolder);
+
+ printf("\n%d\n",maxLength);
+
+
+return 0;
+}

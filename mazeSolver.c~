@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ncurses.h>
+#include "stack.h"
+
+int main(){
+
+ FILE* maze;
+ char* mazeLine;
+ char* prevMazeLine;
+ int xPos, yPos, i;
+ char pos;
+ stack* sol;
+ stack* newNode;
+
+ mazeLine = malloc(sizeof(char)*100);
+ prevMazeLine = malloc(sizeof(char)*100);
+ maze = fopen("maze.txt","r");
+
+ fgets(mazeLine,100,maze);
+
+initscr();
+ do {
+
+  printw("%s",mazeLine);
+  strcpy(prevMazeLine,mazeLine);
+  fgets(mazeLine,100,maze);
+  
+  } while (strcmp(mazeLine,prevMazeLine) != 0);
+
+ xPos = 0;
+ yPos = 1;
+ pos = 'c'; 
+move(yPos,xPos);	
+
+
+ sol = createStack();
+ sol = push(sol,yPos,xPos);
+
+/* while (pos != 'F'){*/
+
+for (i=0;i<136;i++){
+
+  move(sol->next->yPosition, sol->next->xPosition);
+ mvprintw(sol->next->yPosition,sol->next->xPosition,"%d %d",sol->next->yPosition, sol->next->xPosition);
+  if (mvinch(yPos,xPos+1) == ' '){
+    sol->next->right = 1;
+    sol = push(sol,yPos,xPos+1);
+    xPos ++;
+
+    move(sol->next->yPosition, sol->next->xPosition);
+    addch('.');
+    move(sol->next->yPosition, sol->next->xPosition);
+    continue; 
+    }
+
+  if (mvinch(yPos+1,xPos) == ' '){
+    sol->next->down = 1;
+    sol = push(sol,yPos+1,xPos);   
+    yPos++;
+
+    move(sol->next->yPosition, sol->next->xPosition);
+    addch('.');
+    move(sol->next->yPosition, sol->next->xPosition);
+    continue;
+    }
+
+  if (mvinch(yPos-1,xPos) == ' '){
+    sol->next->up = 1;
+    sol = push(sol,yPos-1,xPos);
+    yPos--;
+
+    move(sol->next->yPosition, sol->next->xPosition);
+    addch('.');
+    move(sol->next->yPosition, sol->next->xPosition);
+    continue;
+    }
+
+
+  if (mvinch(yPos,xPos-1) == ' '){
+    sol->next->left = 1;
+    sol = push(sol,yPos,xPos-1);
+    xPos--;
+
+    move(sol->next->yPosition, sol->next->xPosition);
+    addch('.');
+    move(sol->next->yPosition, sol->next->xPosition);
+    continue;
+    }
+
+  if ( (mvinch(yPos,xPos+1) != ' ') && (mvinch(yPos,xPos-1) != ' ') && (mvinch(yPos-1,xPos) != ' ') && (mvinch(yPos+1,xPos) != ' ') ){
+   move(sol->next->yPosition, sol->next->xPosition);
+   pop(sol);
+   move(sol->next->yPosition, sol->next->xPosition);
+   continue;
+
+   }
+  move(sol->next->yPosition, sol->next->xPosition);
+}
+  
+pos = inch();
+getch();
+endwin(); 
+
+
+
+printf("\n%c\n",pos);
+newNode = peek(sol);
+
+printf("\n%d %d\n",newNode->xPosition,newNode->yPosition);
+
+
+ fclose(maze);
+
+destroyStack(sol);
+return 0;
+}

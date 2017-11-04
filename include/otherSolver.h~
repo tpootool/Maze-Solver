@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ncurses.h>
+
+struct theMaze{
+ char printout[100][100];
+ int Length;
+};
+
+void pathCheck(char* mazePath);
+
+struct theMaze* mazePrinter(char* mazePath);
+
+int lengthCounter(char** mazeDoc);
+
+stack* solver(struct theMaze* mazeHolder);
+
+struct theMaze* solutionWriter(stack* solution, char* mazePath);
+
+void finalPrint(struct theMaze* solution);

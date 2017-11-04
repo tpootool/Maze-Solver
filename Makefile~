@@ -1,0 +1,7 @@
+all : test program
+
+program:
+	gcc -Iinclude src/stack.c src/ListFunctions.c src/otherSolver.c src/solverFunctions.c -Wall -ansi -g -obin/runme
+
+test:
+	gcc -Iinclude src/stack.c src/ListFunctions.c src/test.c -Wall -ansi -obin/testme

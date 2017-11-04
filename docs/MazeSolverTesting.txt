@@ -1,0 +1,32 @@
+Student Name: Travis Pootoolal
+Student ID: 0753981
+
+
+To show the tests I have done for the maze solving program, I have listed my tests in a table format.
+The table consists of what I have done, what I expect and what actually happened.
+
+
+Input                       | Expected Output            | Actual Output
+-----------------------------------------------------------------------------------------
+-No path entered on command | -Error message displays    | -Does as expected            |
+ line                       |  and exits program         |                              |
+                            |                            |                              |
+                            |                            |                              |
+-Invalid path entered on    | -Error message displays    | -Does as expected            |
+ command line               |  and exits program         |                              |
+                            |                            |                              |
+                            |                            |                              |
+-Changed starting and       | -Prints path from new      | -Does as expected in most    |
+ ending positions in maze   |  start to finish           |  parts, creates seg faults   |
+ file                       |                            |  in few places if S is       |
+                            |                            |  placed in the middle of the |
+                            |                            |  maze (works if S is inside  |
+                            |                            |  any wall)                   |
+                            |                            |                              |
+-Changed maze so there are  | -Error message displays    | -Does as expected in most    |
+ no possible paths to       |  and exits program         |  parts, creates seg faults   |
+ the 'F'                    |                            |  in few places if S is       |
+                            |                            |  placed in the middle of the |
+                            |                            |  maze (works if S is inside  |
+                            |                            |  in any wall)                |
+

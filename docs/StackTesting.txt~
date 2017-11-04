@@ -1,0 +1,34 @@
+The following shows the manner in which functions were tested
+A '-' indicates that the test was used and submitted 
+A '>' indicates that the test was performed but had to be taken out of the code for the program to run successfully
+
+createStack:
+-Tested by creating a list, adding values to the list and printing the list
+-If createList was successful, the print function will have been successful
+>Tried assigning a non node* variable to the function. This resulted in a warning while compiling but ran successfully if the variable was not called
+
+push:
+-Tested by adding elements to the stack and then printing the stack with printf
+-If push was successful, the print function will have been successful
+-Upon testing it was successful
+>Tried passing an uninitialized stack* into first parameter of function. This resulted in a warning upon compiling and a Segmentation Fault upon running
+>Tried passing an incorrect type into first parameter of function. This resulted in a warning upon compiling and a Segmentation Fault upon running
+>Tried passing no value into first parameter of function. This resulted in a warning upon compiling and a Segmentation Fault upon running
+>Same results occurred when the above two processes were tried for the second and third parameter of the function
+
+pop:
+-Tested by passing an initialized stack into the function and printing both the list after removal and the removed item
+-If function is successful, the printed stack should have the first item removed, the second item in the list as the first, followed by the removed item in a separate line
+-Upon testing it was successful
+>Tried passing an uninitialized list into the function. This resulted in a warning upon compiling and a Segmentation Fault upon running
+>Tried passing an incorrect type into the function. This resulted in a warning upon compiling and a Segmentation Fault upon running
+
+destroyStack:
+-Used at the end of the test program
+-Was difficult to get an accurate test, however there were no errors on compiling or running
+
++ I believe these tests to be thorough because they tested the functions under conditions when they should work and also under conditions when they should not work.  Results from these tests have been documented and should provide enough insight as to how functional they are.
+
+This is largely similar to the testing of Lab 3, however there were a few modifications:
+-Since peek was not used at all, it was not tested.
+-Each element now contains two (2) integer values instead of one (1) for the lab so the push function was tested with that in mind

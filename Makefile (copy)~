@@ -1,0 +1,2 @@
+all:
+	gcc -Iinclude src/stack.c src/ListFunctions.c otherSolver.c -lncurses

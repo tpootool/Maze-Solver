@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ncurses.h>
+#include "stack.h"
+#include "otherSolver.h"
+
+int main(int argc, char* argv[]){
+
+ stack* sol;
+ struct theMaze* first;
+
+ pathCheck(argv[1]);
+
+ first = mazePrinter(argv[1]);
+
+ sol = solver(first);
+
+ free(first);
+
+ first = solutionPrinter(sol, argv[1]);
+
+ finalPrint(first);
+
+ free(first);
+
+ printf("\n%s\n",argv[1]);
+
+return 0;
+}
